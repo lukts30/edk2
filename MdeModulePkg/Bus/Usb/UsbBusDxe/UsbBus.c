@@ -102,7 +102,9 @@ UsbIoControlTransfer (
   // number of bytes were transferred, then return EFI_DEVICE_ERROR.
   //
   if (!EFI_ERROR (Status)) {
+     DEBUG ((DEBUG_ERROR, "UsbIoControlTransfer!));
     if ((Direction != EfiUsbNoData) && (DataLength != RequestedDataLength)) {
+      DEBUG ((DEBUG_ERROR, "UsbIoControlTransfer %d %d \n", DataLength, RequestedDataLength));
       Status = EFI_DEVICE_ERROR;
       goto ON_EXIT;
     }
